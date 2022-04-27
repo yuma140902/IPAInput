@@ -2,6 +2,7 @@ import csv
 import sys
 import io
 import argparse
+import pathlib
 
 def loadKanaDic(kanaFile: str) -> dict[str, str]:
     with open(kanaFile, encoding='utf-8') as f:
@@ -37,7 +38,9 @@ if __name__ == '__main__':
     if outfilename in (None, '-'):
         outfile = sys.stdout
     else:
-        outfile = open(outfilename, mode='w', encoding='utf-8')
+        outfilepath = pathlib.Path(outfilename)
+        outfilepath.parent.mkdir(parents=True, exist_ok=True)
+        outfile = outfilepath.open(mode='w', encoding='utf-8')
 
     kanaDic = loadKanaDic('kana.csv' if args.kana is None else args.kana)
     (ipaDic, clist, vlist) = loadIpa('alphaipa.csv' if args.ipa is None else args.ipa)
