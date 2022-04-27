@@ -22,8 +22,11 @@ jobs:
       - name: Install dependencies
         run: python3 -m pip install -r ./requirements.txt
       
-      - name: Build
+      - name: Build 1
         run: python3 ./ipa.py ./build/latest.txt
+
+      - name: Build 2
+        run: python3 ./ipa.py --ipa ./ipa-ja.csv ./build/latest-ja.txt
       
       - name: Archive
         uses: actions/upload-artifact@v3
