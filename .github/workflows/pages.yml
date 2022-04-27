@@ -31,7 +31,7 @@ jobs:
       - name: Archive
         uses: actions/upload-artifact@v3
         with:
-          path: ./build/latest.txt
+          path: ./build/*.txt
       
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
