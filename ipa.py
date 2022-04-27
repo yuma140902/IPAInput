@@ -43,7 +43,7 @@ if __name__ == '__main__':
         outfile = outfilepath.open(mode='w', encoding='utf-8')
 
     kanaDic = loadKanaDic('kana.csv' if args.kana is None else args.kana)
-    (ipaDic, clist, vlist) = loadIpa('alphaipa.csv' if args.ipa is None else args.ipa)
+    (ipaDic, clist, vlist) = loadIpa('ipa.csv' if args.ipa is None else args.ipa)
 
     for c in clist:
         for v in vlist:
